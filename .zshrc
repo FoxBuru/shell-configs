@@ -11,10 +11,26 @@ export PATH=${PATH}:~/.local/bin
 export LC_ALL=es_MX.UTF-8
 export LANG=es_MX.UTF-8
 
+# ZSH Facts
+HISTFILE=${HOME}/.zsh_history
+HISTSIZE=20000
+SAVEHIST=${HISTSIZE}
+COMPLETION_WAITING_DOTS=true
+setopt extended_history
+setopt hist_expire_dups_first
+setopt inc_append_history
+
+
 # Fact-checking...
 [[ ! -f ${HOME}/.shell-cfg/zbin/zinit.zsh ]] && {
 	command mkdir -p ${HOME}/.shell-cfg
 	command git clone --depth=1 https://github.com/zdharma/zinit ${HOME}/.shell-cfg/zbin
+}
+
+# Vim fact-checking
+[[ ! -f ${HOME}/.vim/bundle/Vundle.vim/autoload/vundle.vim ]] && {
+	command mkdir -p ${HOME}/.vim/bundle
+	command git clone --depth=1 https://github.com/gmarik/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 }
 
 source ~/.shell-cfg/zbin/zinit.zsh
@@ -65,13 +81,13 @@ zinit wait lucid for \
 	OMZP::gpg-agent \
 	djui/alias-tips \
 	OMZP::virtualenvwrapper \
-	OMZP::golang \
-	OMZP::ubuntu \
     atinit"zicompinit; zicdreplay" \
 	zdharma/fast-syntax-highlighting \
 	OMZP::colored-man-pages \
 	marlonrichert/zsh-autocomplete \
-    atload'__bind_history_keys' \
-	zsh-users/zsh-history-substring-search \
+	zdharma/history-search-multi-word \
     atload"_zsh_autosuggest_start" \
-	zsh-users/zsh-autosuggestions
+	zsh-users/zsh-autosuggestions \
+    as"completion" \
+	OMZP::golang \
+	OMZP::ubuntu

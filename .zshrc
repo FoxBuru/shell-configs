@@ -30,7 +30,7 @@ setopt inc_append_history
 # Vim fact-checking
 [[ ! -f ${HOME}/.vim/bundle/Vundle.vim/autoload/vundle.vim ]] && {
 	command mkdir -p ${HOME}/.vim/bundle
-	command git clone --depth=1 https://github.com/gmarik/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
+	command git clone --depth=1 https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 }
 
 source ~/.shell-cfg/zbin/zinit.zsh

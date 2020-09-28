@@ -75,6 +75,12 @@ zinit wait lucid for \
     atload'zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"' \
 	trapd00r/LS_COLORS
 
+# Fonts installing	
+zinit wait lucid for \
+    atclone"mv *.ttf ${HOME}/.fonts/.; fc-cache" \
+    atpull'%atclone' from"gh-r" bpick"*FantasqueSansMono*" nocompile \
+        ryanoasis/nerd-fonts
+
 # Loading plugins!
 zinit wait lucid for \
 	OMZP::command-not-found \

@@ -20,7 +20,6 @@ setopt extended_history
 setopt hist_expire_dups_first
 setopt inc_append_history
 
-
 # Fact-checking...
 [[ ! -f ${HOME}/.shell-cfg/zbin/zinit.zsh ]] && {
 	command mkdir -p ${HOME}/.shell-cfg
@@ -81,11 +80,16 @@ zinit wait lucid for \
     atpull'%atclone' from"gh-r" bpick"*FantasqueSansMono*" nocompile \
         ryanoasis/nerd-fonts
 
+# Binary helper for zsh-fast-alias-tips from sei40kr
+zinit wait lucid for \
+    from'gh-r' as'program' bpick"*linux*" \
+        sei40kr/fast-alias-tips-bin
+
 # Loading plugins!
 zinit wait lucid for \
 	OMZP::command-not-found \
 	OMZP::gpg-agent \
-	djui/alias-tips \
+	sei40kr/zsh-fast-alias-tips \
 	OMZP::virtualenvwrapper \
     atinit"zicompinit; zicdreplay" \
 	zdharma/fast-syntax-highlighting \
